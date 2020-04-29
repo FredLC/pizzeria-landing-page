@@ -2,7 +2,7 @@
     <div id="app">
         <comp-header />
         <div>
-            content
+            <md-button>content</md-button>
         </div>
         <comp-footer />
     </div>
