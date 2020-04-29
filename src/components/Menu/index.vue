@@ -26,6 +26,7 @@ export default {
                 { name: 'salads', active: false },
                 { name: 'desserts', active: false },
             ],
+            products: [],
         };
     },
     methods: {
@@ -38,6 +39,22 @@ export default {
                 }
             });
         },
+    },
+    created() {
+        this.$http
+            .get('products.json')
+            .then((response) => response.json())
+            .then((data) => {
+                let list = [];
+
+                for (let key in data) {
+                    list.push({
+                        ...data[key],
+                        id: key,
+                    });
+                }
+                this.products = list;
+            });
     },
 };
 </script>
